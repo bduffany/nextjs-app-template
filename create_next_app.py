@@ -57,6 +57,8 @@ def main():
         run("npm install --save react react-dom next")
         run("npm install --save-dev typescript @types/react @types/next")
 
+    update_package_json()
+
     mirror_data_directory()
 
     print("Done! Run the app with `npm run dev`.")

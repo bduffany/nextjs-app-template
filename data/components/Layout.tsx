@@ -1,3 +1,7 @@
-const Layout = ({ children }) => <div>{children}</div>;
+interface Props {
+  children?: any;
+}
+
+const Layout = ({ children }: Props) => <div>{children}</div>;
 
 export default Layout;

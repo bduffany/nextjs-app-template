@@ -1,4 +1,4 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, { Html, Main, NextScript } from 'next/document';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,13 +9,6 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <style jsx global>{`
-            body {
-              margin: 0;
-            }
-          `}</style>
-        </Head>
         <body>
           <Main />
           <NextScript />

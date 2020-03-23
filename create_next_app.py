@@ -55,7 +55,7 @@ def main():
 
     if not os.path.exists("node_modules"):
         run("yarn add react react-dom next")
-        run("yarn add -D typescript @types/react @types/next")
+        run("yarn add --dev typescript @types/react @types/next @types/node")
 
     update_package_json()
 

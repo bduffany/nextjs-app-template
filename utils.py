@@ -7,7 +7,7 @@ from contextlib import contextmanager
 
 def run(command: str, **kwargs):
     """Runs a shell command."""
-    subprocess.run(command.split(), **kwargs)
+    subprocess.run(command.split(), **kwargs, shell=True)
 
 
 @contextmanager

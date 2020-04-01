@@ -18,17 +18,17 @@ def mirror_data_directory():
 
     Existing files are skipped.
     """
-    data_dir = f"{os.path.dirname(sys.argv[0])}/data"
+    data_dir = os.path.join(os.path.dirname(sys.argv[0]), "data")
     with working_directory(data_dir):
         data_dir_walk = list(os.walk("."))
     for (parent_path, _, file_names) in data_dir_walk:
         if not os.path.exists(parent_path):
             os.mkdir(parent_path)
         for file_name in file_names:
-            path = f"{parent_path}/{file_name}"
-            if os.path.exists(path) or (os.path.exists(path.replace(".tsx", ".js"))):
+            path = os.path.join(parent_path, file_name)
+            if os.path.exists(path) or os.path.exists(path.replace(".tsx", ".js")):
                 continue
-            shutil.copyfile(f"{data_dir}/{path}", path)
+            shutil.copyfile(os.path.join(data_dir, path), path)
             print(f"Copied: {data_dir}/{path} --> {path}")
 
 
@@ -36,7 +36,7 @@ def update_package_json():
     """Updates package.json with next.js scripts."""
     with open("package.json", "r") as package_file:
         package_json = json.load(package_file)
-    if "dev" in package_json["scripts"]:
+    if "scripts" in package_json and "dev" in package_json["scripts"]:
         return
     package_json["scripts"] = {
         "dev": "next",
@@ -55,13 +55,13 @@ def main():
 
     if not os.path.exists("node_modules"):
         run("yarn add react react-dom next")
-        run("yarn add --dev typescript @types/react @types/next")
+        run("yarn add --dev typescript @types/react @types/next @types/node")
 
     update_package_json()
 
     mirror_data_directory()
 
-    print("Done! Run the app with `npm run dev`.")
+    print("Done! Run the app with `yarn run dev`.")
 
 
 if __name__ == "__main__":

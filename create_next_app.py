@@ -51,11 +51,11 @@ def update_package_json():
 def main():
     """Sets up the Next app in the current directory."""
     if not os.path.exists("package.json"):
-        run("npm init -y")
+        run("yarn init -y")
 
     if not os.path.exists("node_modules"):
-        run("npm install --save react react-dom next")
-        run("npm install --save-dev typescript @types/react @types/next")
+        run("yarn add react react-dom next")
+        run("yarn add --dev typescript @types/react @types/next")
 
     update_package_json()
 

@@ -11,7 +11,7 @@ A simple CLI for creating a Next.js app with opinionated defaults.
 * Adds a layout system that prevents the entire page from getting
   rendered on each client-side navigation, for a true "SPA" experience.
   The layout system is based on Adam Wathan's article, 
-  [Persistent Layout Patterns in NextJS](https://adamwathan.me/2019/1/17/persistent-layout-patterns-in-nextjs/).
+  [Persistent Layout Patterns in NextJS](https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/).
 * Sets up [react-jss](https://cssinjs.org) and adds a basic theme.
 
 ## Usage

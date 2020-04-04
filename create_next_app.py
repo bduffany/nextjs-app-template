@@ -9,6 +9,7 @@ import json
 import os
 import shutil
 import sys
+from typing import List
 
 from utils import run, working_directory
 
@@ -32,6 +33,12 @@ def mirror_data_directory():
             print(f"Copied: {data_dir}/{path} --> {path}")
 
 
+def mirror_root_files(file_names: List[str]):
+    """Mirrors the given files from this project's root directory."""
+    for file_name in file_names:
+        if not os.path.exists(file_name):
+            shutil.copyfile(os.path.join(os.path.dirname(sys.argv[0]), file_name), file_name)
+
 def update_package_json():
     """Updates package.json with next.js scripts."""
     with open("package.json", "r") as package_file:
@@ -48,20 +55,48 @@ def update_package_json():
     print("Updated package.json")
 
 
-def main():
-    """Sets up the Next app in the current directory."""
+PACKAGES = [
+    "next",
+    "react-dom",
+    "react-jss",
+    "react",
+]
+
+DEV_PACKAGES = [
+    "@types/next",
+    "@types/node",
+    "@types/react",
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "eslint-config-prettier",
+    "eslint-config-typescript",
+    "eslint-plugin-import",
+    "eslint-plugin-prettier",
+    "eslint-plugin-react",
+    "eslint",
+    "typescript",
+]
+
+def setup_package():
     if not os.path.exists("package.json"):
         run("yarn init -y")
 
     if not os.path.exists("node_modules"):
-        run("yarn add react react-dom next")
-        run("yarn add --dev typescript @types/react @types/next @types/node")
+        run(f"yarn add {' '.join(PACKAGES)}")
+        run(f"yarn add --dev {' '.join(DEV_PACKAGES)}")
 
     update_package_json()
 
-    mirror_data_directory()
 
-    print("Done! Run the app with `yarn run dev`.")
+def main():
+    """Sets up the Next app in the current directory."""
+    mirror_data_directory()
+    mirror_root_files(['.eslintrc', '.eslintignore'])
+
+    setup_package()
+
+    print("Done! Now running the app with `yarn run dev`.")
+    run('yarn run dev')
 
 
 if __name__ == "__main__":

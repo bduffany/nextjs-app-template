@@ -58,8 +58,8 @@ def update_package_json():
 PACKAGES = [
     "next",
     "react-dom",
-    "react-jss",
     "react",
+    "styled-components",
 ]
 
 DEV_PACKAGES = [
@@ -68,6 +68,7 @@ DEV_PACKAGES = [
     "@types/react",
     "@typescript-eslint/eslint-plugin",
     "@typescript-eslint/parser",
+    "babel-plugin-styled-components",
     "eslint-config-prettier",
     "eslint-config-typescript",
     "eslint-plugin-import",
@@ -91,7 +92,7 @@ def setup_package():
 def main():
     """Sets up the Next app in the current directory."""
     mirror_data_directory()
-    mirror_root_files(['.eslintrc', '.eslintignore'])
+    mirror_root_files(['.eslintrc', '.eslintignore', 'tsconfig.json'])
 
     setup_package()
 

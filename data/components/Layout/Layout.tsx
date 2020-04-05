@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import React from 'react';
 
 // A layout is just a functional component that renders children.
 export type Layout = React.FC;

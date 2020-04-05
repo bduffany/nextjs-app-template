@@ -33,11 +33,5 @@
     "typescriptreact"
   ],
   "files.eol": "\n",
-  "prettier.disableLanguages": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact"
-  ],
   "python.formatting.provider": "black"
 }

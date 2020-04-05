@@ -5,35 +5,32 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document';
-import { createGenerateId, JssProvider, SheetsRegistry } from 'react-jss';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    // Required for react-jss:
-    // https://github.com/zeit/next.js/blob/master/examples/with-react-jss/pages/_document.js
-    const registry = new SheetsRegistry();
-    const generateId = createGenerateId();
+    const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
-    ctx.renderPage = () =>
-      originalRenderPage({
-        enhanceApp: (App) => (props) => (
-          <JssProvider registry={registry} generateId={generateId}>
-            <App {...props} />
-          </JssProvider>
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
+      const initialProps = await Document.getInitialProps(ctx);
+
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
         ),
-      });
-
-    const initialProps = await Document.getInitialProps(ctx);
-
-    return {
-      ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          <style id="server-side-styles">{registry.toString()}</style>
-        </>
-      ),
-    };
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {

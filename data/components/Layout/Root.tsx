@@ -1,38 +1,32 @@
-import { useContext } from 'react';
-import { createUseStyles, ThemeProvider } from 'react-jss';
-import ThemeContext, { Theme } from '../../context/Theme';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import THEME from '../../context/theme';
 import { Layout } from './Layout';
 
-const useStyleResets = createUseStyles({
-  '@global': {
-    body: {
-      margin: 0,
-    },
-    '*': {
-      boxSizing: 'border-box',
-    },
-  },
-});
+const CommonStyles = createGlobalStyle`
+    body {
+      font-family: ${({ theme }) => theme.bodyFontFamily};
+      font-size: ${({ theme }) => theme.rootFontSize};
+    }
+`;
 
-const useGlobalProperties = createUseStyles((theme: Theme) => ({
-  '@global': {
-    body: {
-      font: {
-        family: theme.bodyFontFamily,
-        size: theme.rootFontSize,
-      },
-    },
-  },
-}));
+const StyleResets = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;
 
 export type RootLayoutProps = {
   children: any;
 };
 
 const RootLayout: Layout = ({ children }: RootLayoutProps) => {
-  useStyleResets();
-  useGlobalProperties();
-  return <>{children}</>;
+  return (
+    <>
+      <CommonStyles />
+      <StyleResets />
+      {children}
+    </>
+  );
 };
 
 /**
@@ -41,9 +35,8 @@ const RootLayout: Layout = ({ children }: RootLayoutProps) => {
  */
 export default function withRootLayout<P>(Component: React.FC<P>): React.FC<P> {
   return function RootLayoutHOC(props: P) {
-    const theme = useContext(ThemeContext);
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={THEME}>
         <RootLayout>
           <Component {...props} />
         </RootLayout>

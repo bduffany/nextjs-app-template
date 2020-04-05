@@ -1,5 +1,5 @@
 {
-  "name": "create-next-app",
+  "name": "test",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,7 +7,7 @@
     "next": "^9.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-jss": "^10.1.1"
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -15,6 +15,7 @@
     "@types/react": "^16.9.32",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-typescript": "^3.0.0",

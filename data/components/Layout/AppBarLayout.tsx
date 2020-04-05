@@ -1,37 +1,33 @@
-import { useContext } from 'react';
-import { createUseStyles } from 'react-jss';
-import ThemeContext, { Theme } from '../../context/Theme';
+import styled from 'styled-components';
 import { Layout } from './Layout';
 import withRootLayout from './Root';
 
-interface Props {
+type Props = {
   children?: any;
-}
+};
 
-const useStyles = createUseStyles((theme: Theme) => ({
-  appBar: {
-    background: theme.primaryColor,
-    color: theme.textOnPrimaryColor,
-    padding: 16,
-    '& h1': {
-      margin: 0,
-    },
-  },
-  content: {
-    padding: 16,
-  },
-}));
+const AppBar = styled.div`
+  background: ${({ theme }) => theme.primaryColor};
+  color: ${({ theme }) => theme.textOnPrimaryColor};
+  padding: 16px;
+`;
+
+const AppTitle = styled.h1`
+  margin: 0;
+`;
+
+const AppContent = styled.div`
+  padding: 16px;
+`;
 
 // The primary layout used for the app, which includes only an app bar.
 const AppBarLayout: Layout = ({ children }: Props) => {
-  const theme = useContext(ThemeContext);
-  const jss = useStyles(theme);
   return (
     <>
-      <div className={jss.appBar}>
-        <h1>Next app</h1>
-      </div>
-      <div className={jss.content}>{children}</div>
+      <AppBar>
+        <AppTitle>Next app</AppTitle>
+      </AppBar>
+      <AppContent>{children}</AppContent>
     </>
   );
 };

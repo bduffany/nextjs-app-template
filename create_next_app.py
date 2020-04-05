@@ -39,6 +39,7 @@ def mirror_root_files(file_names: List[str]):
         if not os.path.exists(file_name):
             shutil.copyfile(os.path.join(os.path.dirname(sys.argv[0]), file_name), file_name)
 
+
 def update_package_json():
     """Updates package.json with next.js scripts."""
     with open("package.json", "r") as package_file:
@@ -75,6 +76,7 @@ DEV_PACKAGES = [
     "eslint-plugin-prettier",
     "eslint-plugin-react",
     "eslint",
+    "styled-components",
     "typescript",
 ]
 

@@ -1,23 +1,9 @@
 {
-  // Disable formatters including Prettier, relying on ESLint's
-  // fixes instead. Note that ESLint is configured to use
-  // the same rules as Prettier (with some overrides).
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "[typescript]": {
-    "editor.formatOnSave": false
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": false
-  },
   "editor.codeActionsOnSave": {
     "source.organizeImports": false,
     "source.fixAll.eslint": true
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "emmet.triggerExpansionOnTab": true,
@@ -32,6 +18,5 @@
     "typescript",
     "typescriptreact"
   ],
-  "files.eol": "\n",
-  "python.formatting.provider": "black"
+  "files.eol": "\n"
 }

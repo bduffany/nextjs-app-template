@@ -1,28 +1,24 @@
-# create-next-app
+# nextjs-app-template
 
-A simple CLI for creating a Next.js app, pre-configured for an insanely
-good dev experience and a super slick layout system out of the box.
+A Next.js template that provides an insanely good user experience and developer
+experience out of the box.
 
-## What it does
+## How to use it
 
-- Bootstraps `package.json` using Yarn.
-- Adds a basic `.gitignore`, eslint configs, and VS Code settings.
-- Sets up the `index.js` page as well as a custom `Document` and `App`
-  (which are almost always desired when creating NextJS apps).
-- Adds a layout system that prevents the entire page from getting
-  rendered on each client-side navigation, for a true "SPA" experience.
+`yarn create next-app YOUR-PROJECT-NAME --example https://github.com/bduffany/nextjs-app-template`
+
+## Features
+
+- App layout is preserved across navigations, for a true "SPA" experience,
+  instead of each page getting completely re-rendered on each navigation.
   The layout system is based on Adam Wathan's article,
   [Persistent Layout Patterns in NextJS](https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/).
-- Sets up [styled-components](https://styled-components.com/) and adds a
-  basic theme.
 
-## Usage
+- Sets up [styled-components](https://styled-components.com/) for proper
+  server-side rendering, as well as a basic app theme.
 
-Pre-requisites: you will need Yarn and Python 3 installed.
+- VSCode configuration that uses Prettier for super fast formatting on save,
+  while also fixing the issue that neither Prettier nor VS Code organizes
+  imports in a satisfying way ([#5995](https://github.com/prettier/prettier/issues/5995))
 
-1. Clone this repo and add it to your `PATH` .
-2. Change to the directory where you want to create the app.
-3. Run `python3 /PATH/TO/create_next_app.py` in your terminal.
-
-If you have already partially created your app, you can still run
-this script. It will never overwrite any of your existing files.
+- A `Dockerfile` so you can easily deploy it to the cloud.

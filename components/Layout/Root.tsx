@@ -1,11 +1,11 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import THEME from '../../context/theme';
+import DEFAULT_THEME, { Theme } from '../../context/theme';
 import { Layout } from './Layout';
 
-const CommonStyles = createGlobalStyle`
+const CommonStyles = createGlobalStyle<Theme>`
     body {
-      font-family: ${({ theme }) => theme.bodyFontFamily};
-      font-size: ${({ theme }) => theme.rootFontSize};
+      font-family: ${(p) => p.theme.bodyFontFamily};
+      font-size: ${(p) => p.theme.rootFontSize};
     }
 `;
 
@@ -36,7 +36,7 @@ const RootLayout: Layout = ({ children }: RootLayoutProps) => {
 export default function withRootLayout<P>(Component: React.FC<P>): React.FC<P> {
   return function RootLayoutHOC(props: P) {
     return (
-      <ThemeProvider theme={THEME}>
+      <ThemeProvider theme={DEFAULT_THEME}>
         <RootLayout>
           <Component {...props} />
         </RootLayout>

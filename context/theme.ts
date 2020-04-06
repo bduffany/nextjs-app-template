@@ -1,4 +1,4 @@
-const LIGHT_THEME = {
+const DEFAULT_THEME = {
   primaryColor: '#ffa000',
   textOnPrimaryColor: 'white',
   bodyColor: 'white',
@@ -9,4 +9,10 @@ const LIGHT_THEME = {
   rootFontSize: '16px',
 };
 
-export default LIGHT_THEME;
+// Theme type to be used with `createGlobalStyles`.
+// TODO(http://git.io/JvATr): remove this.
+export type Theme = {
+  theme: typeof DEFAULT_THEME;
+};
+
+export default DEFAULT_THEME;

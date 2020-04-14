@@ -5,7 +5,7 @@ experience out of the box.
 
 ## How to use it
 
-`yarn create next-app YOUR-PROJECT-NAME --example https://github.com/bduffany/nextjs-app-template`
+`yarn create next-app YOUR-PROJECT-NAME --example https://github.com/bduffany/nextjs-app-template/tree/master`
 
 ## Features
 

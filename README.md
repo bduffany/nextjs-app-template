@@ -22,3 +22,12 @@ experience out of the box.
   imports in a satisfying way ([#5995](https://github.com/prettier/prettier/issues/5995))
 
 - A `Dockerfile` so you can easily deploy it to the cloud.
+
+## Recommended VS Code extensions
+
+Install these VS Code extensions to get the most out of this template:
+
+- Prettier - Code formatter
+- eslint
+- vscode-styled-components
+- Docker

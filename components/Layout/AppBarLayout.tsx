@@ -7,8 +7,10 @@ type Props = {
 };
 
 const AppBar = styled.div`
-  background: ${({ theme }) => theme.primaryColor};
-  color: ${({ theme }) => theme.textOnPrimaryColor};
+  ${({ theme }) => css`
+    background: ${theme.primaryColor};
+    color: ${theme.textOnPrimaryColor};
+  `}
   padding: 16px;
 `;
 
@@ -20,7 +22,11 @@ const AppContent = styled.div`
   padding: 16px;
 `;
 
-// The primary layout used for the app, which includes only an app bar.
+/**
+ * The primary layout used for the app, which includes only an app bar.
+ *
+ * The layout is preserved across page navigations.
+ */
 const AppBarLayout: Layout = ({ children }: Props) => {
   return (
     <>

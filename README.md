@@ -9,6 +9,8 @@ experience out of the box.
 
 ## Features
 
+- [TypeScript](https://typescriptlang.org)
+
 - App layout is preserved across navigations, for a true "SPA" experience,
   instead of each page getting completely re-rendered on each navigation.
   The layout system is based on Adam Wathan's article,

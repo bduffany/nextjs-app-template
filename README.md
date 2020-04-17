@@ -23,6 +23,11 @@ experience out of the box.
   while also fixing the issue that neither Prettier nor VS Code organizes
   imports in a satisfying way ([#5995](https://github.com/prettier/prettier/issues/5995))
 
+- A simple, extensible environment variable mechanism that allows different
+  environments for development and production.
+
+- Proper configuration for Jest. Run `yarn jest` to run all tests in the package.
+
 - A `Dockerfile` so you can easily deploy it to the cloud.
 
 ## Recommended VS Code extensions

@@ -7,6 +7,7 @@ COPY package.json /usr/src/app
 RUN npm install
 
 COPY . /usr/src/app
+RUN ln config/env.production.ts config/env.ts
 
 RUN npm run build
 

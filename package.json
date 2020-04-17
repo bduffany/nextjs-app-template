@@ -4,27 +4,39 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "babel-plugin-styled-components": "^1.10.7",
     "next": "^9.3.4",
-    "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react": "^16.13.1",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
     "@types/next": "^9.0.0",
     "@types/node": "^13.11.0",
+    "@types/react-dom": "^16.9.0",
     "@types/react": "^16.9.32",
     "@types/styled-components": "^5.0.1",
+    "@types/yup": "^0.26.33",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
-    "eslint": "^6.8.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.3.0",
     "prettier": "^2.0.2",
+    "ts-jest": "^25.4.0",
+    "ts-node": "^8.8.2",
+    "typescript-styled-plugin": "^0.15.0",
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "dev": "next"
+    "dev": "ts-node --project bin/tsconfig.json bin/link_env.ts development && next",
+    "build": "next build",
+    "start": "next start"
   }
 }

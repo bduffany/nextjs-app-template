@@ -32,6 +32,11 @@ experience out of the box.
     deployment branches. It also cleans up old Docker images to avoid racking
     up storage costs.
 
+- A simple, extensible environment variable mechanism that allows different
+  environments for development and production.
+
+- Proper configuration for Jest. Run `yarn jest` to run all tests in the package.
+
 ## Recommended VS Code extensions
 
 Install these VS Code extensions to get the most out of this template:

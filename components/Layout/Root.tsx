@@ -3,10 +3,16 @@ import DEFAULT_THEME, { Theme } from '../../context/theme';
 import { Layout } from './Layout';
 
 const CommonStyles = createGlobalStyle<Theme>`
-    body {
-      font-family: ${(p) => p.theme.bodyFontFamily};
-      font-size: ${(p) => p.theme.rootFontSize};
-    }
+  ${({ theme }) =>
+    css`
+      html {
+        font-size: ${theme.rootFontSize};
+      }
+
+      body {
+        font-family: ${theme.bodyFontFamily};
+      }
+    `}
 `;
 
 const StyleResets = createGlobalStyle`

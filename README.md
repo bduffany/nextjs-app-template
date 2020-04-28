@@ -1,3 +1,5 @@
+<!-- TODO [i]: Add project details -->
+
 # nextjs-app-template
 
 A Next.js template that provides an insanely good user experience and developer
@@ -27,12 +29,8 @@ experience out of the box.
 
   - Dockerfile
   - Build configuration that allows auto-deploying scripts when pushing to
-    deployment branches
-  - Build configuration that
-
-- Git hooks:
-  - "DO NOT COMMIT" hook that prevents commiting any files containing
-    "DO NOT COMMIT"
+    deployment branches. It also cleans up old Docker images to avoid racking
+    up storage costs.
 
 ## Recommended VS Code extensions
 

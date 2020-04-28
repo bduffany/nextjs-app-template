@@ -3,6 +3,7 @@
   "plugins": ["import"],
   "extends": ["typescript", "typescript/react"],
   "rules": {
+    "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/indent": "off",
@@ -16,6 +17,7 @@
         }
       }
     ],
+    "react/no-unescaped-entities": "off",
     // React doesn't need to be in global scope when using NextJS.
     "react/react-in-jsx-scope": "off"
   },

@@ -23,7 +23,16 @@ experience out of the box.
   while also fixing the issue that neither Prettier nor VS Code organizes
   imports in a satisfying way ([#5995](https://github.com/prettier/prettier/issues/5995))
 
-- A `Dockerfile` so you can easily deploy it to the cloud.
+- Google Cloud:
+
+  - Dockerfile
+  - Build configuration that allows auto-deploying scripts when pushing to
+    deployment branches
+  - Build configuration that
+
+- Git hooks:
+  - "DO NOT COMMIT" hook that prevents commiting any files containing
+    "DO NOT COMMIT"
 
 ## Recommended VS Code extensions
 

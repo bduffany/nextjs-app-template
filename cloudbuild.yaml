@@ -1,5 +1,5 @@
 substitutions:
-  # TODO [W] Google Cloud service name is not configured.
+  # TODO [E]: Google Cloud service name is not configured.
   # _SERVICE_NAME: 'google-cloud-service-name'
   _DOCKER_HISTORY_SIZE: '3'
 steps:

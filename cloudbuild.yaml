@@ -1,0 +1,44 @@
+substitutions:
+  # TODO [W] Google Cloud service name is not configured.
+  # _SERVICE_NAME: 'google-cloud-service-name'
+  _DOCKER_HISTORY_SIZE: '3'
+steps:
+  # Clean up old container images
+  - name: 'gcr.io/cloud-builders/gcloud-slim'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        set -e
+        url="gcr.io/$PROJECT_ID/$_SERVICE_NAME"
+        gcloud container images list-tags "$url" --limit=unlimited \
+            --sort-by=~TIMESTAMP --format='get(digest)' \
+            | tail -n +$(( $_DOCKER_HISTORY_SIZE + 1 )) \
+            | while read digest ; do
+          (
+            set -x
+            gcloud container images delete -q --force-delete-tags "${url}@${digest}"
+          )
+          c=$(( c + 1 ))
+        done
+        echo "Deleted ${c} old Docker image(s) for ${url}." >&2
+  # Build the new container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - '$_SERVICE_NAME'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
+      - '--region'
+      - 'us-east1'
+      - '--platform'
+      - 'managed'
+images:
+  - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'

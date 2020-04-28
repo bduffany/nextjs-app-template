@@ -8,11 +8,16 @@ const [envName] = process.argv.slice(2);
 
 const DEFAULT_ENV_NAME = 'development';
 
-const ENV_PATH = `./config/env.${envName || DEFAULT_ENV_NAME}.ts`;
-const LINK_PATH = './config/env.ts';
+function linkEnv(parentDir: string) {
+  const envPath = `${parentDir}/env.${envName || DEFAULT_ENV_NAME}.ts`;
+  const linkPath = `${parentDir}/env.ts`;
 
-if (fs.existsSync(LINK_PATH)) {
-  fs.unlinkSync(LINK_PATH);
+  if (fs.existsSync(linkPath)) {
+    fs.unlinkSync(linkPath);
+  }
+
+  fs.linkSync(envPath, linkPath);
 }
 
-fs.linkSync(ENV_PATH, LINK_PATH);
+linkEnv('./config');
+linkEnv('./server/config');

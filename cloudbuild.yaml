@@ -1,6 +1,6 @@
 substitutions:
-  # TODO [W]: Configure GCP service name.
-  # TODO [W]: Set up deploy-on-push trigger in GCP.
+  # TODO [w]: Configure GCP service name.
+  # TODO [w]: Set up deploy-on-push trigger in GCP.
   # _SERVICE_NAME: 'google-cloud-service-name'
   _DOCKER_HISTORY_SIZE: '3'
 steps:

@@ -1,7 +1,10 @@
 {
   "extends": "../tsconfig.json",
-  // Node binaries in this directory require commonjs module format,
-  // which conflicts with the esnext format in the root directory
-  // above.
-  "compilerOptions": { "module": "commonjs" }
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es6",
+    "noEmit": false
+  },
+  "include": ["bin/**/*.ts", "server/**/*.ts", "shared/**/*.ts"]
 }

@@ -1,5 +1,8 @@
+import DarkModeToggle from 'components/darkmode/DarkModeToggle';
+import Card from 'components/primitives/Card';
 import styled from 'styled-components';
-import { Layout } from './Layout';
+import Text from '../primitives/Text';
+import Layout from './Layout';
 import withRootLayout from './Root';
 
 type Props = {
@@ -7,11 +10,8 @@ type Props = {
 };
 
 const AppBar = styled.div`
-  ${({ theme }) => css`
-    background: ${theme.primaryColor};
-    color: ${theme.textOnPrimaryColor};
-  `}
-  padding: 16px;
+  background: var(--primary-color);
+  color: var(--text-on-accent-color);
 `;
 
 const AppTitle = styled.h1`
@@ -19,7 +19,13 @@ const AppTitle = styled.h1`
 `;
 
 const AppContent = styled.div`
-  padding: 16px;
+  flex-grow: 1;
+`;
+
+const Footer = styled.div`
+  color: var(--text-on-accent-color);
+  background: var(--footer-background-color);
+  margin-top: auto;
 `;
 
 /**
@@ -31,9 +37,19 @@ const AppBarLayout: Layout = ({ children }: Props) => {
   return (
     <>
       <AppBar>
-        <AppTitle>Next app</AppTitle>
+        <Card style={{ display: 'flex' }}>
+          <AppTitle>App Title</AppTitle>
+          <DarkModeToggle style={{ marginLeft: 'auto' }} />
+        </Card>
       </AppBar>
       <AppContent>{children}</AppContent>
+      <Footer>
+        <Card>
+          <Text align="center">
+            &copy; {new Date().getFullYear()} Site Author
+          </Text>
+        </Card>
+      </Footer>
     </>
   );
 };

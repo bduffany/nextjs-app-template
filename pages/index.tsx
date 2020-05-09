@@ -1,7 +1,10 @@
-import AppBarLayout from '../components/Layout/AppBarLayout';
-import { NextPageWithLayout } from '../components/Layout/Layout';
+import Card from 'components/primitives/Card';
+import AppBarLayout from '../components/layout/AppBarLayout';
+import AppPage from '../components/page/AppPage';
 
-const Page: NextPageWithLayout = () => <div>Hello world!</div>;
+const Page: AppPage = () => <Card>Hello world!</Card>;
+
+Page.title = 'Home';
 
 Page.layout = AppBarLayout;
 

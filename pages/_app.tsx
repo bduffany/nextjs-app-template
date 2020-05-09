@@ -1,13 +1,26 @@
+import { NullLayout } from 'components/layout/Layout';
+import AppPage from 'components/page/AppPage';
 import { AppPropsType } from 'next/dist/next-server/lib/utils';
-import { NextPageWithLayout, NullLayout } from '../components/Layout/Layout';
+import Head from 'next/head';
+
+const APP_TITLE = 'App Title';
 
 export default function CustomApp({ Component, pageProps }: AppPropsType) {
-  const ComponentWithLayout = Component as NextPageWithLayout;
-  const Layout = ComponentWithLayout.layout || NullLayout;
+  const Page = Component as AppPage;
+  const PageLayout = Page.layout || NullLayout;
+  const title = Page.title;
 
   return (
-    <Layout>
-      <Component {...pageProps}></Component>
-    </Layout>
+    <>
+      <Head>
+        <title>
+          {APP_TITLE}
+          {title ? ` | ${title}` : ''}
+        </title>
+      </Head>
+      <PageLayout>
+        <Page {...pageProps}></Page>
+      </PageLayout>
+    </>
   );
 }

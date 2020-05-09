@@ -1,3 +1,7 @@
+import {
+  DarkModeContext,
+  DarkModeContextProvider,
+} from 'components/darkmode/DarkModeToggle';
 import Document, {
   DocumentContext,
   Head,
@@ -5,10 +9,13 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document';
+import { useContext } from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
+    // const darkMode = parseDarkModeCookie();
+
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
     try {
@@ -36,7 +43,12 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

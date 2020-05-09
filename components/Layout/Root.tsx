@@ -1,25 +1,6 @@
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import DEFAULT_THEME, { Theme } from '../../context/theme';
-import { Layout } from './Layout';
-
-const CommonStyles = createGlobalStyle<Theme>`
-  ${({ theme }) =>
-    css`
-      html {
-        font-size: ${theme.rootFontSize};
-      }
-
-      body {
-        font-family: ${theme.bodyFontFamily};
-      }
-    `}
-`;
-
-const StyleResets = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`;
+import { DarkModeContextProvider } from 'components/darkmode/DarkModeToggle';
+import Layout from './Layout';
+import RootStyles from './RootStyles';
 
 export type RootLayoutProps = {
   children: any;
@@ -28,8 +9,7 @@ export type RootLayoutProps = {
 const RootLayout: Layout = ({ children }: RootLayoutProps) => {
   return (
     <>
-      <CommonStyles />
-      <StyleResets />
+      <RootStyles />
       {children}
     </>
   );
@@ -42,11 +22,11 @@ const RootLayout: Layout = ({ children }: RootLayoutProps) => {
 export default function withRootLayout<P>(Component: React.FC<P>): React.FC<P> {
   return function RootLayoutHOC(props: P) {
     return (
-      <ThemeProvider theme={DEFAULT_THEME}>
+      <DarkModeContextProvider>
         <RootLayout>
           <Component {...props} />
         </RootLayout>
-      </ThemeProvider>
+      </DarkModeContextProvider>
     );
   };
 }

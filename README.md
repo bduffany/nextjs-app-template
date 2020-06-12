@@ -2,46 +2,100 @@
 
 # nextjs-app-template
 
-A Next.js template that provides an insanely good user experience and developer
+A Next.js template that provides an excellent user experience and developer
 experience out of the box.
+
+Feel free to file an issue if you have feature requests or want to contribute!
 
 ## How to use it
 
-`yarn create next-app YOUR-PROJECT-NAME --example https://github.com/bduffany/nextjs-app-template/tree/master`
+`yarn create next-app $YOUR_PROJECT_NAME --example https://github.com/bduffany/nextjs-app-template/tree/master`
 
-## Features
+## What's in the box?
 
-- [TypeScript](https://typescriptlang.org)
+### User Experience
 
-- [styled-components](https://styled-components.com/) with proper
-  server-side rendering, as well as a basic app theme.
+- [x] **Persistent layouts**: app layout is preserved across page navigations
+      for a fluid "SPA" experience, instead of each page getting completely
+      re-rendered on each navigation.
 
-- App layout is preserved across navigations, for a true "SPA" experience,
-  instead of each page getting completely re-rendered on each navigation.
-  The layout system is based on Adam Wathan's article,
-  [Persistent Layout Patterns in NextJS](https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/).
+- [ ] **Style resets** that fix annoying style inconsistencies across browsers.
 
-- VSCode configuration that uses Prettier for super fast formatting on save,
-  while also fixing the issue that neither Prettier nor VS Code organizes
-  imports in a satisfying way ([#5995](https://github.com/prettier/prettier/issues/5995))
+### Developer Experience
 
-- Google Cloud:
+- [x] **[TypeScript](https://typescriptlang.org)** for better
+      code completion and a faster feedback loop while developing.
 
-  - Dockerfile
-  - Build configuration that allows auto-deploying scripts when pushing to
-    deployment branches. It also cleans up old Docker images to avoid racking
-    up storage costs.
+- [x] **CSS-in-JS** with [styled-jsx](https://github.com/vercel/styled-jsx)
+      for more flexible styling and more convenient development (all component
+      code is located in the same file).
 
-- A simple, extensible environment variable mechanism that allows different
-  environments for development and production.
+- [x] **VSCode configuration**:
 
-- Proper configuration for Jest. Run `yarn jest` to run all tests in the package.
+  - [x] **Prettier**: auto-format on save
+  - [x] **eslint-plugin-import**: auto-organize imports on save, overriding
+        Prettier's annoyingly opinionated defaults.
 
-## Recommended VS Code extensions
+- [x] **Pre-commit hooks** to prevent you from submitting bad code by mistake
 
-Install these VS Code extensions to get the most out of this template:
+  - [x] Runs `npm build` to ensure the NextJS app builds successfully.
+  - [ ] Prevents committing code that contains "DO NOT COMMIT" (duh).
+        This lets you add temporary debug code and leave reminders for
+        yourself not to commit that code.
 
-- Prettier - Code formatter
-- eslint
-- vscode-styled-components
-- Docker
+- [x] Flexible config mechanism that allows using different config variables
+      for different environments (dev, staging, prod, etc.).
+
+- [x] Unit test configuration
+
+  - [x] Jest: run `yarn jest` to run all tests in the package.
+
+- [ ] Integration test configuration
+
+#### Deployment & CI options supported
+
+_All of these services have generous free tiers._
+
+- [x] **Vercel**: this project is ready to be deployed on Vercel.
+
+- [x] **Google Cloud**:
+
+  - [x] Cloud Run:
+    - [x] Dockerfile that builds the app and listens on `$PORT`
+    - [x] `cloudbuild.yaml` that builds and deploys a Docker image
+      - [x] Automatically cleans up old Docker images
+    - [ ] Automated Cloud project setup
+      - [ ] Create new project if needed
+      - [ ] Set up Cloud Build triggers for deploy-on-push
+      - [ ] Set up sane alerts for when project is about to go over budget
+
+- [ ] **Firebase**:
+
+  - [ ] Cloud function deployment
+
+- [ ] **AWS**
+
+- [ ] **Azure**
+
+- [ ] **Netlify**
+
+- [ ] **CircleCI**
+
+#### Commonly used frontend APIs
+
+_All of these services have generous free tiers._
+
+- [x] **Sendgrid** email API:
+
+  - [x] Manual setup by adding credentials to `server/config/env`
+  - [ ] Automated account creation / setup
+
+- [ ] **Cloudflare** image resizing
+
+## VS Code extensions
+
+Run this command to install recommended extensions:
+
+```bash
+code --install-extension esbenp.prettier-vscode dbaeumer.vscode-eslint
+```

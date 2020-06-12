@@ -1,4 +1,4 @@
-const ENV = {
+const PRODUCTION_ENV = {
   cors: {
     origin: [/^http:\/\/localhost:/],
   },
@@ -9,8 +9,8 @@ const ENV = {
     verifiedSenderName: 'TODO from TODO.com',
   },
   firebase: {
-    // TODO [w] Configure Firebase service account
+    // TODO [w]: Configure Firebase service account
   },
 };
 
-export default ENV;
+export default PRODUCTION_ENV;

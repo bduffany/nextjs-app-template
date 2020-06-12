@@ -1,9 +1,10 @@
+import AppPage from 'components/framework/AppPage';
+import RootLayout from 'components/framework/RootLayout';
 import { AppPropsType } from 'next/dist/next-server/lib/utils';
-import { NextPageWithLayout, NullLayout } from '../components/Layout/Layout';
 
 export default function CustomApp({ Component, pageProps }: AppPropsType) {
-  const ComponentWithLayout = Component as NextPageWithLayout;
-  const Layout = ComponentWithLayout.layout || NullLayout;
+  const ComponentWithLayout = Component as AppPage<any>;
+  const Layout = ComponentWithLayout.layout || RootLayout;
 
   return (
     <Layout>

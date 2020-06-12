@@ -14,8 +14,7 @@
     "firebase-admin": "^8.11.0",
     "next": "^9.3.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.0.1"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@types/connect": "^3.4.33",
@@ -32,6 +31,7 @@
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
+    "husky": "^4.2.5",
     "jest": "^25.3.0",
     "prettier": "^2.0.2",
     "ts-jest": "^25.4.0",
@@ -50,5 +50,8 @@
     "build:win": "npm run link-env -- production && SET NODE_ENV=production && next build",
     "start": "NODE_ENV=production next start",
     "start:win": "SET NODE_ENV=production && next start"
+  },
+  "husky": {
+    "pre-commit": "npm run build"
   }
 }

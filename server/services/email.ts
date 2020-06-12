@@ -1,5 +1,5 @@
 import * as email from '@sendgrid/mail';
-import env from './config/env';
+import env from '../config/env';
 
 email.setApiKey(env.sendgrid.apiKey);
 

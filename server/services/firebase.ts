@@ -1,8 +1,7 @@
 import { NextHandleFunction } from 'connect';
 import admin from 'firebase-admin';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { hasClaims } from '../shared/auth';
-import env from './config/env';
+import env from '../config/env';
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -82,11 +81,11 @@ export const checkAuthorization: (
 };
 
 /**
- * Middleware that checks whether the User's custom claims are an object
- * that contains the entry `admin: true`.
+ * Middleware that checks whether the user's "role" custom claim
+ * is set to "admin".
  */
-export const adminOnly = checkAuthorization((user) =>
-  hasClaims(user, { role: 'admin' })
+export const adminOnly = checkAuthorization(
+  (user) => user?.customClaims?.role === 'admin'
 );
 
 export default admin;

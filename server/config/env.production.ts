@@ -1,6 +1,6 @@
 import dev from './env.development';
 
-const ENV = {
+const PRODUCTION_ENV = {
   ...dev,
   cors: {
     // TODO [i]: Configure CORS origins for production.
@@ -8,4 +8,4 @@ const ENV = {
   },
 };
 
-export default ENV;
+export default PRODUCTION_ENV;

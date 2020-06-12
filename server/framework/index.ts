@@ -1,7 +1,7 @@
 import cookies from 'connect-cookies';
 import { NextApiHandler } from 'next';
-import CORS from './cors';
-import { firebaseAuthentication } from './firebase';
+import { firebaseAuthentication } from '../services/firebase';
+import corsMiddleware from './cors';
 import { restrictMethods } from './methods';
 import { withMiddleware } from './middleware';
 
@@ -19,7 +19,7 @@ export default function withFrameworkMiddleware(
   return withMiddleware(
     [
       restrictMethods(methods),
-      CORS,
+      corsMiddleware,
       cookies(),
       firebaseAuthentication(requiresAuthentication),
       ...before,

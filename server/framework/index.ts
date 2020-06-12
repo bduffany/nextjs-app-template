@@ -1,6 +1,6 @@
 import cookies from 'connect-cookies';
 import { NextApiHandler } from 'next';
-import { firebaseAuthentication } from '../services/firebase';
+import { firebaseAuthentication } from 'server/services/firebase';
 import corsMiddleware from './cors';
 import { restrictMethods } from './methods';
 import { withMiddleware } from './middleware';

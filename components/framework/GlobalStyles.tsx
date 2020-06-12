@@ -1,12 +1,6 @@
 export default function GlobalStyles() {
   return (
     <>
-      {/* Style resets */}
-      <style jsx global>{`
-        body {
-          margin: 0;
-        }
-      `}</style>
       {/* Base theme variables */}
       <style jsx global>{`
         body {
@@ -27,8 +21,10 @@ export default function GlobalStyles() {
         body {
           background: var(--body-background);
           font-family: var(--body-font-family);
+          color: var(--body-text-color);
         }
 
+        /* Make each page take up the entire viewport. */
         html,
         body,
         #__next {

@@ -1,7 +1,7 @@
 import { NextHandleFunction } from 'connect';
 import admin from 'firebase-admin';
 import { NextApiRequest, NextApiResponse } from 'next';
-import env from '../config/env';
+import env from 'server/config/env';
 
 if (!admin.apps.length) {
   admin.initializeApp({

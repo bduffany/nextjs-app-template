@@ -15,8 +15,9 @@ function linkEnv(parentDir: string) {
   if (fs.existsSync(linkPath)) {
     fs.unlinkSync(linkPath);
   }
-
-  fs.linkSync(envPath, linkPath);
+  if (fs.existsSync(envPath)) {
+    fs.linkSync(envPath, linkPath);
+  }
 }
 
 linkEnv('./config');

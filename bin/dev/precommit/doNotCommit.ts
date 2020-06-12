@@ -13,6 +13,7 @@ function getOutput(command: string) {
     .filter((line) => line);
 }
 
+// Concatenation here avoids triggering a precommit error.
 const FORBIDDEN_STRING = 'DO NOT ' + 'COMMIT';
 
 function check(path: string, ignoredPaths: Set<string>) {

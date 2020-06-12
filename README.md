@@ -2,7 +2,7 @@
 
 # nextjs-app-template
 
-A Next.js template that provides an excellent user experience and developer
+A Next.JS template that provides an excellent user experience and developer
 experience out of the box.
 
 Feel free to file an issue if you have feature requests or want to contribute!
@@ -15,13 +15,14 @@ Feel free to file an issue if you have feature requests or want to contribute!
     `code --install-extension esbenp.prettier-vscode dbaeumer.vscode-eslint`
 
 2.  `git clone https://github.com/bduffany/nextjs-app-template your/project/dir`
+
 3.  Change the `name` field in `package.json` to your project name
 
 ## What's in the box?
 
 ### User Experience
 
-- [x] **Persistent layouts**: app layout is preserved across page navigations
+- [x] **Persistent page layouts**: app layout is preserved across page navigations
       for a fluid "SPA" experience, instead of each page getting completely
       re-rendered on each navigation.
 
@@ -30,7 +31,8 @@ Feel free to file an issue if you have feature requests or want to contribute!
   - [x] **CORS** config on API routes via framework middleware: `server/framework/index.tsx`
   - [ ] **CSRF protection**
 
-- [ ] **Style resets** that fix annoying style inconsistencies across browsers.
+- [x] **Style resets** using [sanitize.css](https://github.com/csstools/sanitize.css)
+      which fix well-known cross-browser bugs and inconsistencies.
 
 ### Developer Experience
 

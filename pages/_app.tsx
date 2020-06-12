@@ -1,6 +1,7 @@
 import AppPage from 'components/framework/AppPage';
 import RootLayout from 'components/framework/RootLayout';
 import { AppPropsType } from 'next/dist/next-server/lib/utils';
+import 'sanitize.css';
 
 export default function CustomApp({ Component, pageProps }: AppPropsType) {
   const ComponentWithLayout = Component as AppPage<any>;

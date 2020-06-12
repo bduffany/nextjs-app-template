@@ -1,5 +1,5 @@
 import prompt from 'prompt-promise';
-import admin from '../../server/services/firebase';
+import admin from 'server/services/firebase';
 
 async function promptBoolean(question: string, defaultResponse = true) {
   const answer = (

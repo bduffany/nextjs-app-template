@@ -1,7 +1,3 @@
-import dev from './env.development';
-
-const ENV = {
-  ...dev,
-};
+const ENV = {};
 
 export default ENV;

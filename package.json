@@ -43,7 +43,7 @@
   },
   "scripts": {
     "dev": "yarn run link-env development && next dev",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "build": "yarn run link-env production && NODE_ENV=production next build",
     "start": "NODE_ENV=production next start",
     "build:win": "yarn run link-env production && SET NODE_ENV=production && next build",
@@ -55,7 +55,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run ts-bin bin/dev/precommit/doNotCommit.ts && yarn run build"
+      "pre-commit": "yarn run ts-bin bin/dev/precommit/doNotCommit.ts && yarn run build && yarn run test"
     }
   }
 }

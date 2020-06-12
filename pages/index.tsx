@@ -8,7 +8,6 @@ const Page: AppPage = () => (
     </div>
     <style jsx>{`
       .content {
-        border: 4px dashed grey;
         box-sizing: border-box;
         padding: 16px;
         height: 100%;

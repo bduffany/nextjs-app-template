@@ -1,9 +1,10 @@
 <!-- TODO [i]: Add project details -->
 
-# Next.js production app template
+# Next.js app template
 
-A production-ready Next.js template that provides an excellent user
-experience and developer experience out of the box.
+A **no-nonsense**, **production-ready**, **minimally opinionated** Next.js
+template that provides an excellent user experience and developer experience
+out of the box.
 
 Feel free to file an issue if you have feature requests or want to contribute!
 
@@ -92,7 +93,7 @@ _All of these services have generous free tiers._
 - [x] **Google Cloud**:
 
   - [x] Cloud Run:
-    - [x] `Dockerfile` that builds the app and listens on `$PORT`
+  - [x] `Dockerfile` that builds the app and listens on `$PORT`
     - [x] `cloudbuild.yaml` that builds and deploys a Docker image
       - [x] Automatically cleans up old Docker images
     - [ ] Automated Cloud project setup
@@ -121,6 +122,7 @@ _All of these services have generous free tiers._
   - [x] Authentication
     - [x] Authentication middleware for API routes
     - [x] CLI for setting custom claims on users
+    - [ ] `getServerSideProps`-based authentication
 
 - [x] **Sendgrid** email API:
 

@@ -11,7 +11,7 @@ function runMiddleware(
   middleware: Function
 ) {
   return new Promise((resolve, reject) => {
-    middleware(req, res, (error) => {
+    middleware(req, res, (error: any) => {
       if (error) {
         return reject(error);
       }

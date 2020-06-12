@@ -61,11 +61,14 @@ Feel free to file an issue if you have feature requests or want to contribute!
   - [x] **Prettier**: auto-format on save
   - [x] **eslint-plugin-import**: auto-organize imports on save, overriding
         Prettier's annoyingly opinionated defaults.
+  - [x] Hides the `.next` directory and prevents file watchers from being
+        set up on that directory, which otherwise has a negative
+        impact on editor performance.
 
 - [x] **Git hooks** that prevent you from committing bad code by mistake
 
   - [x] Git hooks are installed automatically when running `yarn install`,
-        thanks to Husky
+        thanks to [Husky](https://github.com/typicode/husky).
   - [x] Prevents committing code that contains "DO&nbsp;NOT&nbsp;COMMIT" (duh).
         This lets you add temporary debug code and leave reminders for
         yourself not to commit that code.

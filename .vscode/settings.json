@@ -18,5 +18,12 @@
     // Generated config files
     "**/env.ts": true
   },
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.hg/store/**": true
+  },
   "typescript.tsdk": "node_modules/typescript/lib"
 }

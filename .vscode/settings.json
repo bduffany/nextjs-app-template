@@ -20,7 +20,9 @@
   ],
   "files.eol": "\n",
   "files.exclude": {
-    ".next": true
+    ".next": true,
+    // Generated config files
+    "**/env.ts": true
   },
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

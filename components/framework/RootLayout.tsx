@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import GlobalStyles from './GlobalStyles';
-import { Layout } from './Layout';
+import Layout from './Layout';
 
 export type RootLayoutProps = {
   children?: any;

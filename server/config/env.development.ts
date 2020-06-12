@@ -10,6 +10,10 @@ const PRODUCTION_ENV = {
   },
   firebase: {
     // TODO [w]: Configure Firebase service account
+    project_id: 'TODO',
+    private_key: 'TODO',
+    client_email: 'TODO',
+    database_url: 'TODO',
   },
 };
 

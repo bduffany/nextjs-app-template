@@ -9,7 +9,8 @@ Feel free to file an issue if you have feature requests or want to contribute!
 
 ## How to use it
 
-`yarn create next-app $YOUR_PROJECT_NAME --example https://github.com/bduffany/nextjs-app-template/tree/master`
+1.  `git clone https://github.com/bduffany/nextjs-app-template your/project/dir`
+2.  Change the `name` field in `package.json` to your project name
 
 ## What's in the box?
 
@@ -19,6 +20,11 @@ Feel free to file an issue if you have feature requests or want to contribute!
       for a fluid "SPA" experience, instead of each page getting completely
       re-rendered on each navigation.
 
+- [x] **Security**:
+
+  - [x] **CORS** config on API routes via framework middleware: `server/framework/index.tsx`
+  - [ ] **CSRF protection**
+
 - [ ] **Style resets** that fix annoying style inconsistencies across browsers.
 
 ### Developer Experience
@@ -26,9 +32,22 @@ Feel free to file an issue if you have feature requests or want to contribute!
 - [x] **[TypeScript](https://typescriptlang.org)** for better
       code completion and a faster feedback loop while developing.
 
+  - [x] `tsconfig.json` enables imports relative to the root directory:
+        `import Bar from 'components/foo/Bar';` instead of
+        `import Bar from '../../../components/foo/Bar';`
+
 - [x] **CSS-in-JS** with [styled-jsx](https://github.com/vercel/styled-jsx)
       for more flexible styling and more convenient development (all component
       code is located in the same file).
+
+- [x] Powerful and intuitive **configuration** system:
+
+  - [x] Per-environment config is supported `config/env.development.ts`, etc.
+    - [x] `import env from 'config/env';` imports `env.development.ts` in
+          development and `env.production.ts` in production (`next build`).
+  - [x] Much more powerful than `.env` files since config files are written in TypeScript.
+  - [x] Environment variables are still accessible via `process.env` if you
+        need them.
 
 - [x] **VSCode configuration**:
 
@@ -36,21 +55,21 @@ Feel free to file an issue if you have feature requests or want to contribute!
   - [x] **eslint-plugin-import**: auto-organize imports on save, overriding
         Prettier's annoyingly opinionated defaults.
 
-- [x] **Pre-commit hooks** to prevent you from submitting bad code by mistake
+- [x] **Pre-commit Git hooks** that prevent you from committing bad code by mistake
 
+  - [x] Git hooks are installed automatically when running `yarn install`,
+        thanks to Husky
   - [x] Runs `npm build` to ensure the NextJS app builds successfully.
-  - [ ] Prevents committing code that contains "DO NOT COMMIT" (duh).
+  - [x] Prevents committing code that contains "DO&nbsp;NOT&nbsp;COMMIT" (duh).
         This lets you add temporary debug code and leave reminders for
         yourself not to commit that code.
+        <!-- NOTE: &nbsp; is used above to allow this README to commit. -->
 
-- [x] Flexible config mechanism that allows using different config variables
-      for different environments (dev, staging, prod, etc.).
-
-- [x] Unit test configuration
+* [x] **Unit testing** configuration
 
   - [x] Jest: run `yarn jest` to run all tests in the package.
 
-- [ ] Integration test configuration
+* [ ] Integration test configuration
 
 #### Deployment & CI options supported
 
@@ -61,7 +80,7 @@ _All of these services have generous free tiers._
 - [x] **Google Cloud**:
 
   - [x] Cloud Run:
-    - [x] Dockerfile that builds the app and listens on `$PORT`
+    - [x] `Dockerfile` that builds the app and listens on `$PORT`
     - [x] `cloudbuild.yaml` that builds and deploys a Docker image
       - [x] Automatically cleans up old Docker images
     - [ ] Automated Cloud project setup
@@ -84,6 +103,12 @@ _All of these services have generous free tiers._
 #### Commonly used frontend APIs
 
 _All of these services have generous free tiers._
+
+- [x] **Firebase**:
+
+  - [x] Authentication
+    - [x] Authentication middleware for API routes
+    - [x] CLI for setting custom claims on users
 
 - [x] **Sendgrid** email API:
 

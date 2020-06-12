@@ -1,9 +1,9 @@
 <!-- TODO [i]: Add project details -->
 
-# nextjs-app-template
+# Next.js production app template
 
-A Next.JS template that provides an excellent user experience and developer
-experience out of the box.
+A production-ready Next.js template that provides an excellent user
+experience and developer experience out of the box.
 
 Feel free to file an issue if you have feature requests or want to contribute!
 

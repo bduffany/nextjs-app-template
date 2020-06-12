@@ -54,7 +54,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run ts-bin bin/dev/precommit/doNotCommit.ts && yarn run build && yarn run test"
+      "pre-commit": "yarn run ts-bin bin/dev/precommit/doNotCommit.ts && yarn tsc && yarn tsc --build tsconfig.bin.json && yarn run test"
     }
   }
 }

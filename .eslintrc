@@ -17,6 +17,7 @@
         }
       }
     ],
+    "import/no-relative-parent-imports": "on",
     "react/no-unescaped-entities": "off",
     // React doesn't need to be in global scope when using NextJS.
     "react/react-in-jsx-scope": "off"

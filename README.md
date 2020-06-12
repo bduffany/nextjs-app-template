@@ -9,8 +9,13 @@ Feel free to file an issue if you have feature requests or want to contribute!
 
 ## How to use it
 
-1.  `git clone https://github.com/bduffany/nextjs-app-template your/project/dir`
-2.  Change the `name` field in `package.json` to your project name
+1.  If you use VS Code (highly recommended), run this command to install
+    recommended extensions:
+
+    `code --install-extension esbenp.prettier-vscode dbaeumer.vscode-eslint`
+
+2.  `git clone https://github.com/bduffany/nextjs-app-template your/project/dir`
+3.  Change the `name` field in `package.json` to your project name
 
 ## What's in the box?
 
@@ -117,11 +122,3 @@ _All of these services have generous free tiers._
   - [ ] Automated account creation / setup
 
 - [ ] **Cloudflare** image resizing
-
-## VS Code extensions
-
-Run this command to install recommended extensions:
-
-```bash
-code --install-extension esbenp.prettier-vscode dbaeumer.vscode-eslint
-```

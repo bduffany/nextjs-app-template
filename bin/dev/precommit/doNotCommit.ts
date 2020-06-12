@@ -40,7 +40,9 @@ function check(path: string, ignoredPaths: Set<string>) {
 }
 
 function main() {
-  const stagedFiles = getOutput('git diff --name-only --cached');
+  const stagedFiles = getOutput(
+    'git diff --name-only --cached --diff-filter=d'
+  );
   const ignoredPaths = new Set(IGNORED_PATHS.map((path) => realpathSync(path)));
   let exitCode = 0;
   for (const path of stagedFiles) {

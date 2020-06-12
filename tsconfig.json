@@ -13,11 +13,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin"
-      }
-    ],
     "baseUrl": "./"
   },
   "exclude": ["node_modules"],

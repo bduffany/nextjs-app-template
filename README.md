@@ -62,16 +62,17 @@ Feel free to file an issue if you have feature requests or want to contribute!
   - [x] **eslint-plugin-import**: auto-organize imports on save, overriding
         Prettier's annoyingly opinionated defaults.
 
-- [x] **Pre-commit Git hooks** that prevent you from committing bad code by mistake
+- [x] **Git hooks** that prevent you from committing bad code by mistake
 
   - [x] Git hooks are installed automatically when running `yarn install`,
         thanks to Husky
-  - [x] Runs `yarn run build` to ensure the NextJS app builds successfully.
-  - [x] Runs `yarn run test` to ensure tests pass
   - [x] Prevents committing code that contains "DO&nbsp;NOT&nbsp;COMMIT" (duh).
         This lets you add temporary debug code and leave reminders for
         yourself not to commit that code.
         <!-- NOTE: &nbsp; is used above to allow this README to commit. -->
+  - [x] Runs `tsc` on pre-commit to ensure the code compiles.
+  - [x] Runs test suites and an optimized production build on pre-push to
+        avoid pushing bad code to production.
 
 * [x] **Unit testing** configuration
 

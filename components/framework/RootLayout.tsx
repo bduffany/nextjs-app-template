@@ -16,7 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <Head>
-        <title>TODO: Title</title>
+        <title>TODO: Default page title</title>
       </Head>
       <GlobalStyles />
       {children}

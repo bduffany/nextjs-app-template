@@ -59,7 +59,7 @@ out of the box.
         `import Bar from 'components/foo/Bar';` instead of
         `import Bar from '../../../components/foo/Bar';`
 
-- [x] **CSS-in-JS** with [styled-jsx](https://github.com/vercel/styled-jsx)
+- [x] **CSS-in-JS** with [react-jss](https://cssinjs.org/react-jss/?v=v10.3.0)
       for more flexible styling and more convenient development (all component
       code is located in the same file).
 

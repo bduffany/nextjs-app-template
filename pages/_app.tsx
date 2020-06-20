@@ -1,15 +1,25 @@
 import AppPage from 'components/framework/AppPage';
 import RootLayout from 'components/framework/RootLayout';
-import { AppPropsType } from 'next/dist/next-server/lib/utils';
+import App from 'next/app';
 import 'sanitize.css';
 
-export default function CustomApp({ Component, pageProps }: AppPropsType) {
-  const ComponentWithLayout = Component as AppPage<any>;
-  const Layout = ComponentWithLayout.layout || RootLayout;
+export default class CustomApp extends App {
+  componentDidMount() {
+    // Remove server-rendered JSS styles since they may conflict with
+    // client-rendered ones.
+    document.getElementById('server-side-styles')?.remove();
+  }
 
-  return (
-    <Layout>
-      <Component {...pageProps}></Component>
-    </Layout>
-  );
+  render() {
+    const { Component, pageProps } = this.props;
+
+    const ComponentWithLayout = Component as AppPage<any>;
+    const Layout = ComponentWithLayout.layout || RootLayout;
+
+    return (
+      <Layout>
+        <Component {...pageProps}></Component>
+      </Layout>
+    );
+  }
 }

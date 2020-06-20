@@ -2,22 +2,30 @@
 
 # Next.js app template
 
-A **no-nonsense**, **production-ready**, **minimally opinionated** Next.js
-template that provides an excellent user experience and developer experience
+A **no-nonsense**, **production-ready**, **pragmatic**, **minimally opinionated**
+Next.js template that provides an excellent user experience and developer experience
 out of the box.
-
-Feel free to file an issue if you have feature requests or want to contribute!
 
 ## How to use it
 
-1.  If you use VS Code (highly recommended), run this command to install
-    recommended extensions:
+1.  Open a Terminal and run:
 
-    `code --install-extension esbenp.prettier-vscode dbaeumer.vscode-eslint`
+    ```bash
+    cd YOUR/PROJECT/DIRECTORY
+    git clone https://github.com/bduffany/nextjs-app-template .
+    # Start a fresh Git repo
+    rm -rf .git && git init
+    # Rename the package to match the directory name
+    perl -p -i -e "s@nextjs-app-template@$(pwd | xargs basename)@" package.json
+    # Install dependencies
+    yarn install
+    # Start developing
+    yarn dev
+    ```
 
-2.  `git clone https://github.com/bduffany/nextjs-app-template your/project/dir`
-
-3.  Change the `name` field in `package.json` to your project name
+2.  If you use [VS Code](https://code.visualstudio.com/) (highly recommended),
+    install the recommended extensions (you'll be prompted when opening the
+    directory for the first time).
 
 ## What's in the box?
 
@@ -37,7 +45,14 @@ Feel free to file an issue if you have feature requests or want to contribute!
 
 ### Developer Experience
 
-- [x] **[TypeScript](https://typescriptlang.org)** for better
+- [x] **[Next.js](https://nextjs.org/)**: As the name implies, this is a Next.js template.
+      Next.js is widely misunderstood as "just a static site generator," but it is _so_
+      much more than that. It automatically generates static pages _when possible_ and
+      falls back to server-side rendering otherwise. Static pages are served directly from
+      the edge and load nearly instantly. If data fetching is moved to the client side,
+      then all pages can be made static, making every page on your site load almost instantly.
+
+- [x] **[TypeScript](https://typescriptlang.org)** is enabled for better
       code completion and a faster feedback loop while developing.
 
   - [x] `tsconfig.json` enables imports relative to the root directory:
@@ -52,14 +67,14 @@ Feel free to file an issue if you have feature requests or want to contribute!
 
   - [x] Per-environment config is supported `config/env.development.ts`, etc.
     - [x] `import env from 'config/env';` imports `env.development.ts` in
-          development and `env.production.ts` in production (`next build`).
+          development (`next dev`) and `env.production.ts` in production (`next build`).
   - [x] Much more powerful than `.env` files since config files are written in TypeScript.
   - [x] Environment variables are still accessible via `process.env` if you
         need them.
 
 - [x] **VSCode configuration**:
 
-  - [x] **Prettier**: auto-format on save
+  - [x] **Prettier**: configured to auto-format on save
   - [x] **eslint-plugin-import**: auto-organize imports on save, overriding
         Prettier's annoyingly opinionated defaults.
   - [x] Hides the `.next` directory and prevents file watchers from being
@@ -100,16 +115,6 @@ _All of these services have generous free tiers._
       - [ ] Create new project if needed
       - [ ] Set up Cloud Build triggers for deploy-on-push
       - [ ] Set up sane alerts for when project is about to go over budget
-
-- [ ] **Firebase**:
-
-  - [ ] Cloud function deployment
-
-- [ ] **AWS**
-
-- [ ] **Azure**
-
-- [ ] **Netlify**
 
 - [ ] **CircleCI**
 

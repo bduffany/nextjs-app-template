@@ -41,7 +41,12 @@ export default class AppDocument extends Document {
   render() {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+          ></meta>
+        </Head>
         <body>
           <Main />
           <NextScript />

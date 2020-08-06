@@ -105,16 +105,16 @@ _All of these services have generous free tiers._
 
 - [x] **Vercel**: this project is ready to be deployed on Vercel.
 
-- [x] **Google Cloud**:
+- [x] **Google Cloud Run**:
 
-  - [x] Cloud Run:
-  - [x] `Dockerfile` that builds the app and listens on `$PORT`
-    - [x] `cloudbuild.yaml` that builds and deploys a Docker image
-      - [x] Automatically cleans up old Docker images
-    - [ ] Automated Cloud project setup
-      - [ ] Create new project if needed
-      - [ ] Set up Cloud Build triggers for deploy-on-push
-      - [ ] Set up sane alerts for when project is about to go over budget
+  - [x] `cloudbuild.yaml` that builds and deploys a Docker container
+    - [x] `Dockerfile` builds the app and listens on `$PORT`
+    - [x] Automatically cleans up old Docker images
+  - [x] Automated Cloud project setup (`bin/dev/gcloud_ci_setup.sh`)
+    - [ ] Create new Cloud project if needed
+    - [x] Set up Cloud Run services for staging and production
+    - [x] Set up Cloud Build triggers for deploy-on-push
+    - [ ] Set up sane alerts for when project is about to go over budget
 
 - [ ] **CircleCI**
 

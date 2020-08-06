@@ -13,14 +13,7 @@ out of the box.
     ```bash
     cd YOUR/PROJECT/DIRECTORY
     git clone https://github.com/bduffany/nextjs-app-template .
-    # Start a fresh Git repo
-    rm -rf .git && git init
-    # Rename the package to match the directory name
-    perl -p -i -e "s@nextjs-app-template@$(pwd | xargs basename)@" package.json
-    # Install dependencies
-    yarn install
-    # Start developing
-    yarn dev
+    ./init.sh
     ```
 
 2.  If you use [VS Code](https://code.visualstudio.com/) (highly recommended),

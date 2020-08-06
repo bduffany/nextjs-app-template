@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
+    minHeight: '100%',
   },
   header: {
     background: 'var(--primary-color)',
@@ -39,11 +39,11 @@ const MainLayout: Layout<MainLayoutProps> = ({ children }: MainLayoutProps) => {
   return (
     <div className={css.root}>
       <header className={css.header}>
-        <code>Header: components/framework/AppBarLayout.tsx</code>
+        <code>Header: components/framework/MainLayout.tsx</code>
       </header>
       <main className={css.content}>{children}</main>
       <footer className={css.footer}>
-        <code>Footer: components/framework/AppBarLayout.tsx</code>
+        <code>Footer: components/framework/MainLayout.tsx</code>
       </footer>
     </div>
   );
